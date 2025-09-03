@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "healthledger-ipfs",
+  "version": "1.0.0",
+  "description": "HealthLedger on Polygon with IPFS integration",
+  "main": "index.js",
+  "scripts": {
+    "clean": "hardhat clean",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:amoy": "hardhat run scripts/deploy.js --network polygonAmoy",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "add:record": "hardhat run scripts/addRecord.js --network polygonAmoy",
+    "get:record": "hardhat run scripts/getRecord.js --network polygonAmoy",
+    "grant:access": "hardhat run scripts/grantAccess.js --network polygonAmoy",
+    "add:doctor": "hardhat run scripts/addDoctor.js --network polygonAmoy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.22.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "dotenv": "^16.4.0",
+    "ethers": "^6.10.0",
+    "web3.storage": "^4.5.5"
+  }
+}
