@@ -7,13 +7,13 @@ const teamMembers = [
   {
     name: "Kaysan Shaikh",
     role: "Team Leader & Lead Developer",
-    contribution: "Kaysan led the project from conception to deployment, overseeing all aspects of development. He single-handedly redesigned and re-engineered the entire user interface and experience, ensuring a modern, responsive, and intuitive application.",
+    contribution: "Kaysan led the project from conception to deployment, overseeing all phases of development. He single-handedly redesigned and re-engineered the entire user interface and experience—covering both the frontend and backend. Additionally, he implemented a PostgreSQL database and integrated Pinata for decentralized file.",
     linkedin: "https://www.linkedin.com/in/kaysanshaikh/",
   },
   {
     name: "Meghavi Bansod",
     role: "IPFS Specialist",
-    contribution: "Meghavi was responsible for the initial implementation of the InterPlanetary File System (IPFS), ensuring decentralized and secure storage of medical records.",
+    contribution: "Meghavi was responsible for the initial design and implementation of the InterPlanetary File System (IPFS) integration within the project. She focused on enabling decentralized, tamper-proof, and scalable storage to securely manage and retrieve sensitive medical records across the network.",
     linkedin: "https://www.linkedin.com/in/meghavi-bansod-337182223/",
   },
   {
