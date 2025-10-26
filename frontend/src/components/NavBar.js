@@ -1,0 +1,49 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { ModeToggle } from "./mode-toggle";
+import logo from "./logo_new.jpg";
+
+const NavBar = () => {
+  const navigate = useNavigate();
+
+  return (
+    <header className="bg-background shadow-sm sticky top-0 z-50">
+      <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        {/* Logo and Title */}
+        <div className="flex items-center gap-4">
+          <img
+            className="h-10 w-auto cursor-pointer"
+            src={logo}
+            alt="Logo"
+            onClick={() => navigate("/")}
+          />
+          <span
+            className="text-xl font-semibold cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            HealthLedger
+          </span>
+        </div>
+
+        {/* Navigation Links */}
+        <nav className="hidden md:flex items-center gap-6">
+          <Button variant="ghost" onClick={() => navigate("/")}>Home</Button>
+          <Button variant="ghost" onClick={() => navigate("/AboutPage")}>About Us</Button>
+          <Button variant="ghost" onClick={() => navigate("/team")}>Our Team</Button>
+          <Button variant="ghost" onClick={() => navigate("/register")}>Register</Button>
+        </nav>
+
+        {/* Right side controls */}
+        <div className="hidden md:flex items-center gap-4">
+          <Button onClick={() => navigate("/login")}>Login</Button>
+          <ModeToggle />
+        </div>
+
+        {/* Mobile Menu (optional, can be added later) */}
+      </div>
+    </header>
+  );
+};
+
+export default NavBar;
