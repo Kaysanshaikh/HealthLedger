@@ -26,7 +26,7 @@ A comprehensive blockchain-based health records management system with IPFS stor
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/kaysanshaikh-ai/HealthLedger-main.git
+git clone https://github.com/Kaysanshaikh/HealthLedger-main.git
 cd HealthLedger-main
 npm install
 cd frontend
