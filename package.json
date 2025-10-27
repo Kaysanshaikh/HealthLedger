@@ -3,7 +3,7 @@
   "name": "healthledger-ipfs",
   "version": "1.0.0",
   "description": "HealthLedger on Polygon with IPFS integration",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "clean": "hardhat clean",
     "compile": "hardhat compile",
@@ -15,7 +15,8 @@
     "get:record": "hardhat run scripts/getRecord.js --network polygonAmoy",
     "grant:access": "hardhat run scripts/grantAccess.js --network polygonAmoy",
     "add:doctor": "hardhat run scripts/addDoctor.js --network polygonAmoy",
-    "build": "cd frontend && npm install && npm run build",
+    "prebuild": "cd frontend && npm install",
+    "build": "cd frontend && npm run build",
     "start": "node server.js",
     "start:api": "node server.js",
     "dev:api": "nodemon server.js",
@@ -28,9 +29,6 @@
     "test:pinata": "node scripts/testPinata.js",
     "sync:blockchain": "node scripts/syncBlockchain.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
