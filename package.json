@@ -15,6 +15,7 @@
     "get:record": "hardhat run scripts/getRecord.js --network polygonAmoy",
     "grant:access": "hardhat run scripts/grantAccess.js --network polygonAmoy",
     "add:doctor": "hardhat run scripts/addDoctor.js --network polygonAmoy",
+    "build": "cd frontend && npm install && npm run build",
     "start": "node server.js",
     "start:api": "node server.js",
     "dev:api": "nodemon server.js",
