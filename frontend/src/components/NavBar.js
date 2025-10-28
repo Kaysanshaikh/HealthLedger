@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./mode-toggle";
+import { Menu, X } from "lucide-react";
 import logo from "./logo_new.jpg";
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="bg-background shadow-sm sticky top-0 z-50">
@@ -26,7 +37,7 @@ const NavBar = () => {
           </span>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links - Desktop */}
         <nav className="hidden md:flex items-center gap-6">
           <Button variant="ghost" onClick={() => navigate("/")}>Home</Button>
           <Button variant="ghost" onClick={() => navigate("/AboutPage")}>About Us</Button>
@@ -34,14 +45,43 @@ const NavBar = () => {
           <Button variant="ghost" onClick={() => navigate("/register")}>Register</Button>
         </nav>
 
-        {/* Right side controls */}
+        {/* Right side controls - Desktop */}
         <div className="hidden md:flex items-center gap-4">
           <Button onClick={() => navigate("/login")}>Login</Button>
           <ModeToggle />
         </div>
 
-        {/* Mobile Menu (optional, can be added later) */}
+        {/* Mobile Menu Button */}
+        <div className="flex md:hidden items-center gap-2">
+          <ModeToggle />
+          <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-background border-t">
+          <nav className="container mx-auto flex flex-col gap-2 py-4 px-4">
+            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/")}>
+              Home
+            </Button>
+            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/AboutPage")}>
+              About Us
+            </Button>
+            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/team")}>
+              Our Team
+            </Button>
+            <Button variant="ghost" className="w-full justify-start" onClick={() => handleNavigation("/register")}>
+              Register
+            </Button>
+            <Button className="w-full" onClick={() => handleNavigation("/login")}>
+              Login
+            </Button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
