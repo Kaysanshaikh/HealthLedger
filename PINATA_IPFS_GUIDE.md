@@ -76,7 +76,7 @@ Form Data:
 
 **Example using cURL:**
 ```bash
-curl -X POST http://localhost:5000/api/records/upload \
+curl -X POST http://localhost:5001/api/records/upload \
   -F "file=@/path/to/medical-report.pdf" \
   -F "patientHHNumber=555555" \
   -F "recordType=lab-report" \
@@ -91,7 +91,7 @@ formData.append('patientHHNumber', '555555');
 formData.append('recordType', 'lab-report');
 formData.append('description', 'Blood test results');
 
-const response = await fetch('http://localhost:5000/api/records/upload', {
+const response = await fetch('http://localhost:5001/api/records/upload', {
   method: 'POST',
   body: formData
 });
@@ -136,11 +136,11 @@ GET /api/records/file/QmXYZ123...
 **Example:**
 ```javascript
 // Display PDF in browser
-const fileUrl = `http://localhost:5000/api/records/file/${cid}`;
+const fileUrl = `http://localhost:5001/api/records/file/${cid}`;
 window.open(fileUrl, '_blank');
 
 // Or embed in iframe
-<iframe src={`http://localhost:5000/api/records/file/${cid}`} />
+<iframe src={`http://localhost:5001/api/records/file/${cid}`} />
 ```
 
 ### Get File URL
@@ -284,7 +284,7 @@ export default MedicalRecordUpload;
 
 ```jsx
 function MedicalRecordViewer({ cid, fileName }) {
-  const fileUrl = `http://localhost:5000/api/records/file/${cid}`;
+  const fileUrl = `http://localhost:5001/api/records/file/${cid}`;
   
   // Determine file type
   const isPDF = fileName?.endsWith('.pdf');
@@ -376,7 +376,7 @@ node scripts/testPinata.js
 echo "Test medical record" > test-record.txt
 
 # Upload it
-curl -X POST http://localhost:5000/api/records/upload \
+curl -X POST http://localhost:5001/api/records/upload \
   -F "file=@test-record.txt" \
   -F "patientHHNumber=555555" \
   -F "recordType=test"
@@ -385,10 +385,10 @@ curl -X POST http://localhost:5000/api/records/upload \
 ### Test File Retrieval
 ```bash
 # Get file URL
-curl http://localhost:5000/api/records/file/QmXYZ.../url
+curl http://localhost:5001/api/records/file/QmXYZ.../url
 
 # Download file
-curl http://localhost:5000/api/records/file/QmXYZ... -o downloaded-file.pdf
+curl http://localhost:5001/api/records/file/QmXYZ... -o downloaded-file.pdf
 ```
 
 ## 📝 Record Types
