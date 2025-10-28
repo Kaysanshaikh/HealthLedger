@@ -33,8 +33,9 @@ const PatientRegistration = ({ walletAddress }) => {
   const checkRegistration = async () => {
     try {
       setChecking(true);
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
       const response = await fetch(
-        `http://localhost:5001/api/profile/check-registration?walletAddress=${walletAddress}`
+        `${apiUrl}/profile/check-registration?walletAddress=${walletAddress}`
       );
       const data = await response.json();
 
@@ -104,8 +105,9 @@ const PatientRegistration = ({ walletAddress }) => {
 
     try {
       setLoading(true);
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
 
-      const response = await fetch('http://localhost:5001/api/register/patient', {
+      const response = await fetch(`${apiUrl}/register/patient`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
