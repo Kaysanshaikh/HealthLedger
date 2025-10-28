@@ -153,7 +153,10 @@ function ViewPatientRecords() {
                     <div className="mt-6">
                       <Button 
                         size="sm" 
-                        onClick={() => window.open(`http://localhost:5001/api/records/file/${record.ipfs_cid}`, '_blank')}
+                        onClick={() => {
+                          const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
+                          window.open(`${apiUrl}/records/file/${record.ipfs_cid}`, '_blank');
+                        }}
                       >
                         View Document
                       </Button>
